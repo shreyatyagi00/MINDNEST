@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@keyframes tick {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-tick {
+  animation: tick 0.3s ease-out;
+}
