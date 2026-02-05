@@ -1,16 +1,45 @@
-# React + Vite
+**MindNest – A Personal Growth & Productivity App**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MindNest is a calm, aesthetic productivity web app designed to help users organize their thoughts, habits, goals, and daily challenges in one place.
+Built with a focus on mental clarity, consistency, and self-growth.
+_____________________________________________________________________________________________________________________________
+**Features**
 
-Currently, two official plugins are available:
+	Notes
+•	Create, edit, and delete notes
+•	Clean UI for distraction-free writing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+	 Journal
+•	Daily journaling with titles & timestamps
+•	View, edit, and manage past journals
 
-## React Compiler
+	To-Do List
+•	Add & delete tasks
+•	Mark tasks as completed
+•	Visual distinction for completed tasks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+	Goals (Vision Board)
+•	Categorized goals (Health, Career, Lifestyle, etc.)
+•	Sub-goals with completion tracking
+•	Animated circular progress indicator
 
-## Expanding the ESLint configuration
+	Daily Challenges
+•	30+ daily self-improvement challenges
+•	Tick animation on completion
+•	Confetti celebration for motivation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+	 Quotes
+•	Motivational quotes slider
+•	Previous / Next navigation
+_____________________________________________________________________________________________________________________________
+ **Tech-Stack**
+ 
+•	Frontend: React + Vite
+•	Styling: CSS (custom gradients & soft UI)
+•	State Management: React Hooks
+•	Icons & Animations: CSS / lightweight JS
+•	Version Control: Git & GitHub
+____________________________________________________________________________________________________________________________
+**Live-Link**
+
+https://mindnest-sigma.vercel.app/
