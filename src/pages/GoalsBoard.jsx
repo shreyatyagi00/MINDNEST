@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 const DEFAULT_CATEGORIES = {
   health: { title: "Health", goals: [] },
   career: { title: "Career", goals: [] },
@@ -16,6 +19,9 @@ const DEFAULT_CATEGORIES = {
 const GoalsBoard = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState({});
+  const pageRef = useRef(null);
+useSwipeBackWithAnimation("/dashboard", pageRef);
+
 
   useEffect(() => {
     const saved = localStorage.getItem("mindnest-goals");
@@ -32,7 +38,7 @@ const GoalsBoard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center px-4 pt-10  pb-2 ">
+    <div ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center px-4 pt-10  pb-2 ">
       <BackButton to="/dashboard" />
       <div className="bg-white w-full max-w-5xl rounded-3xl shadow-xl   px-10 pt-4 pb-4">
         <h1 className="text-3xl font-bold text-center text-pink-900 mb-12">

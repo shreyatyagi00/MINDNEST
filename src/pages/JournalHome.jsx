@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 
 
 const JournalHome = () => {
   const navigate = useNavigate();
+  const pageRef = useRef(null);
+useSwipeBackWithAnimation("/dashboard", pageRef);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4">
+    <div ref={pageRef} className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4">
       <div className="bg-white rounded-3xl shadow-xl p-10 w-full max-w-md text-center space-y-6">
         <BackButton to="/dashboard"/>
         

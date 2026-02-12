@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 const defaultChallenges = [
   "No phone until after breakfast",
   "Do one thing that scares you",
@@ -48,8 +51,11 @@ const fireConfetti = () => {
 };
 
 const Challenges = () => {
+
   const navigate = useNavigate();
   const [challenges, setChallenges] = useState([]);
+  const pageRef = useRef(null);
+useSwipeBackWithAnimation("/dashboard", pageRef);
 
    
   useEffect(() => {
@@ -103,7 +109,7 @@ const Challenges = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-6 pt-2   mx">
+    <div ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-6 pt-2   mx">
        
         <BackButton to="/dashboard"/>
       <div className="bg-white rounded-3xl shadow-xl ml-15 mr-15  p-4 max-w-6xl mx-auto">

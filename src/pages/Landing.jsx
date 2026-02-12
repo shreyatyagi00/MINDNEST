@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 
 const Landing = () => {
   const navigate = useNavigate();

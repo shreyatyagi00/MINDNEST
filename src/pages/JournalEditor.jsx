@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+ 
 import {
   useNavigate,
   useParams,
@@ -10,6 +13,9 @@ const JournalEditor = () => {
   const { id } = useParams();
   const location = useLocation();
 const backPath = id ? "/journal/list" : "/journal";
+const pageRef = useRef(null);
+useSwipeBackWithAnimation(backPath, pageRef);
+
    
   const isViewMode =
     new URLSearchParams(location.search).get("mode") === "view";
@@ -59,7 +65,7 @@ const backPath = id ? "/journal/list" : "/journal";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4 py-10">
+    <div  ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4 py-10">
         <BackButton to={backPath} />
       <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-8 space-y-6">
            

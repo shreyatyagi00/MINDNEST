@@ -1,4 +1,13 @@
 @import "tailwindcss";
+body {
+  background: linear-gradient(
+    to bottom right,
+    #e9d5ff,
+    #fbcfe8,
+    #c7d2fe
+  );
+  margin: 0;
+}
 @keyframes tick {
   0% {
     transform: scale(0);

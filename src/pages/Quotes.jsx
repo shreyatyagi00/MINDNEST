@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 
 const quotes = [
     "Small steps every day lead to big changes ",
@@ -38,9 +41,12 @@ const quotes = [
 const Quotes = () => {
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
+  const pageRef = useRef(null);
+useSwipeBackWithAnimation("/dashboard", pageRef);
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex items-center justify-center px-4">
+    <div ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex items-center justify-center px-4">
       <BackButton to="/dashboard" />
 
       <div className="bg-white rounded-3xl shadow-xl max-w-lg w-full p-10 text-center">

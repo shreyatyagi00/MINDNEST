@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 
 const Todo = () => {
+  const pageRef = useRef(null);
+useSwipeBackWithAnimation("/dashboard", pageRef);
+
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState(() => {
     const saved = localStorage.getItem("mindnest-todos");
@@ -44,7 +50,7 @@ const Todo = () => {
   }, [todos]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4">
+    <div ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 px-4">
       <BackButton to="/dashboard" />
 
       <div className="flex justify-center">

@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 const JournalList = () => {
   const navigate = useNavigate();
   const [journals, setJournals] = useState([]);
+  const pageRef = useRef(null);
+  useSwipeBackWithAnimation("/journal", pageRef);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("journals")) || [];
@@ -17,7 +22,7 @@ const JournalList = () => {
   }
 
   return (
-    <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
+    <div ref={pageRef}  className="min-h-screen px-4 py-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
         <BackButton to="/journal" />
       <div className="max-w-3xl mx-auto">
 

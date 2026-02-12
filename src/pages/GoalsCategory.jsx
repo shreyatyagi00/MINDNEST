@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useRef } from "react";
+import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
+
 const RADIUS = 60;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const GoalsCategory = () => {
   const { categoryKey } = useParams();
   const navigate = useNavigate();
+  const pageRef = useRef(null);
+  useSwipeBackWithAnimation("/goals", pageRef);
 
   const [category, setCategory] = useState(null);
   const [newGoal, setNewGoal] = useState("");
@@ -64,7 +69,7 @@ const GoalsCategory = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center items-center px-4">
+    <div ref={pageRef} className="min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 flex justify-center items-center px-4">
       <BackButton to="/goals" />
       <div className="bg-white w-full max-w-5xl rounded-3xl shadow-xl p-10 grid grid-cols-1 md:grid-cols-3 gap-10">
 
