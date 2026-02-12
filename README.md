@@ -31,6 +31,12 @@ ________________________________________________________________________________
 	 Quotes
 •	Motivational quotes slider
 •	Previous / Next navigation
+
+	Smooth Page Navigation
+•	Custom swipe-back navigation
+•	Built using a reusable custom React hook
+•	Animated slide transition with opacity control
+•Enhanced UX for mobile-like feel on web
 _____________________________________________________________________________________________________________________________
  **Tech-Stack**
  
