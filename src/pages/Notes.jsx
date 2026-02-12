@@ -4,13 +4,8 @@ import BackButton from "../components/BackButton";
 import useSwipeBackWithAnimation from "../hooks/useSwipeBackWithAnimation";
 
 const Notes = () => {
-  // 🔹 Swipe animation ref
   const pageRef = useRef(null);
-
-  // 🔹 Enable swipe back to dashboard
   useSwipeBackWithAnimation("/dashboard", pageRef);
-
-  // 🔹 States
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [filter, setFilter] = useState("notes");
@@ -20,7 +15,7 @@ const Notes = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // 🔹 Add new note
+  
   function submitHandler(e) {
     e.preventDefault();
 
@@ -40,7 +35,7 @@ const Notes = () => {
     setContent("");
   }
 
-  // 🔹 Toggle complete
+ 
   function toggleDone(id) {
     setNotes(
       notes.map((n) =>
@@ -49,7 +44,7 @@ const Notes = () => {
     );
   }
 
-  // 🔹 Toggle archive
+  
   function toggleArchive(id) {
     setNotes(
       notes.map((n) =>
@@ -58,12 +53,10 @@ const Notes = () => {
     );
   }
 
-  // 🔹 Delete note
   function deleteHandler(id) {
     setNotes(notes.filter((n) => n.id !== id));
   }
 
-  // 🔹 Filter notes
   const filteredNotes = notes.filter((n) => {
     if (filter === "notes") return !n.done && !n.archived;
     if (filter === "all") return true;
@@ -71,7 +64,6 @@ const Notes = () => {
     return true;
   });
 
-  // 🔹 Save to localStorage whenever notes change
   useEffect(() => {
     localStorage.setItem("journal-notes", JSON.stringify(notes));
   }, [notes]);
@@ -84,7 +76,7 @@ const Notes = () => {
       <div className="min-h-screen px-4 bg-gradient-to-br from-purple-200 via-pink-200 to-indigo-200">
         <BackButton to="/dashboard" />
 
-        {/* Add Note Form */}
+         
         <div className="flex justify-center">
           <div className="mt-12 w-full max-w-md bg-white rounded-3xl p-6 shadow-xl">
             <h1 className="text-[26px] font-bold text-center text-pink-900 mb-6">
@@ -122,7 +114,6 @@ const Notes = () => {
           </div>
         </div>
 
-        {/* Filter Buttons */}
         {notes.length > 0 && (
           <div className="flex justify-center gap-4 mt-10">
             {[
@@ -145,7 +136,6 @@ const Notes = () => {
           </div>
         )}
 
-        {/* Empty State */}
         {filteredNotes.length === 0 && (
           <div className="mt-10 text-center text-white">
             <div className="text-5xl mb-3">📝</div>
@@ -173,7 +163,6 @@ const Notes = () => {
           </div>
         )}
 
-        {/* Notes Cards */}
         <div className="flex flex-wrap justify-center gap-6 mt-10 pb-16">
           {filteredNotes.map((note) => (
             <Card

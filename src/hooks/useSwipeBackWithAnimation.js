@@ -83,12 +83,10 @@ export default function useSwipeBackWithAnimation(to, pageRef) {
       }
     };
 
-    // Touch Events
     window.addEventListener("touchstart", onStart, { passive: true });
     window.addEventListener("touchmove", onMove, { passive: true });
     window.addEventListener("touchend", onEnd);
-
-    // Mouse Events
+ 
     window.addEventListener("mousedown", onStart);
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onEnd);
